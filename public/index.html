@@ -1,0 +1,564 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <meta name="description" content="AuditMate — Professional site audit tool for any trade">
+  <meta name="theme-color" content="#ffffff">
+  <title>AuditMate</title>
+  <link rel="stylesheet" href="/css/styles.css">
+</head>
+<body>
+<!-- Offline banner -->
+<div id="offline-banner" class="offline-banner" style="display:none" role="alert">
+  <span>📵 You're offline — AI features and cloud sync are unavailable</span>
+</div>
+
+<div id="toast-container" aria-live="polite" aria-atomic="true"></div>
+<datalist id="unit-suggestions">
+  <option value="metres"><option value="items"><option value="boxes">
+  <option value="litres"><option value="kg"><option value="mm">
+  <option value="m²"><option value="rolls"><option value="lengths">
+  <option value="sheets"><option value="bags"><option value="pairs">
+</datalist>
+
+<!-- ===== LOGIN ===== -->
+<div id="view-login" data-view="login" class="active">
+  <div class="auth-page">
+    <div class="login-card">
+      <div class="logo"><span class="logo-icon">📋</span><span class="logo-text">AuditMate</span></div>
+      <p class="login-tagline">Professional Site Audits for Any Trade</p>
+      <form id="login-form" novalidate>
+        <div class="form-group">
+          <label for="login-email">Email Address</label>
+          <input type="email" id="login-email" placeholder="you@example.com" autocomplete="email" required>
+        </div>
+        <div class="form-group">
+          <label for="login-password">Password</label>
+          <input type="password" id="login-password" placeholder="••••••••" autocomplete="current-password" required>
+        </div>
+        <div class="forgot-link-row"><a class="auth-link" id="link-forgot">Forgot password?</a></div>
+        <button type="submit" class="btn btn-primary btn-full">Sign In</button>
+      </form>
+      <p class="auth-switch">Don't have an account? <a class="auth-link" id="link-signup">Sign up free</a></p>
+    </div>
+  </div>
+</div>
+
+<!-- ===== SIGN UP ===== -->
+<div id="view-signup" data-view="signup">
+  <div class="auth-page">
+    <div class="login-card">
+      <div class="logo"><span class="logo-icon">📋</span><span class="logo-text">AuditMate</span></div>
+      <p class="login-tagline">Create your company account</p>
+      <form id="signup-form" novalidate>
+        <div class="form-group">
+          <label for="signup-company">Company Name <span class="required">*</span></label>
+          <input type="text" id="signup-company" placeholder="e.g. Smith Electrical Ltd" autocomplete="organization" required>
+        </div>
+        <div class="form-group">
+          <label for="signup-name">Your Name <span class="required">*</span></label>
+          <input type="text" id="signup-name" placeholder="e.g. Jane Smith" autocomplete="name" required>
+        </div>
+        <div class="form-group">
+          <label for="signup-email">Email Address <span class="required">*</span></label>
+          <input type="email" id="signup-email" placeholder="you@example.com" autocomplete="email" required>
+        </div>
+        <div class="form-group">
+          <label for="signup-password">Password <span class="required">*</span></label>
+          <input type="password" id="signup-password" placeholder="Min. 8 characters" autocomplete="new-password" required>
+        </div>
+        <div class="form-group">
+          <label for="signup-confirm">Confirm Password <span class="required">*</span></label>
+          <input type="password" id="signup-confirm" placeholder="Repeat password" autocomplete="new-password" required>
+        </div>
+        <button type="submit" class="btn btn-primary btn-full">Create Account</button>
+      </form>
+      <p class="auth-switch">Already have an account? <a class="auth-link" id="link-login-from-signup">Sign in</a></p>
+    </div>
+  </div>
+</div>
+
+<!-- ===== FORGOT PASSWORD ===== -->
+<div id="view-forgot-password" data-view="forgot-password">
+  <div class="auth-page">
+    <div class="login-card">
+      <div class="logo"><span class="logo-icon">📋</span><span class="logo-text">AuditMate</span></div>
+      <p class="login-tagline">Reset your password</p>
+      <form id="forgot-form" novalidate>
+        <div class="form-group">
+          <label for="forgot-email">Email Address</label>
+          <input type="email" id="forgot-email" placeholder="you@example.com" autocomplete="email" required>
+        </div>
+        <button type="submit" class="btn btn-primary btn-full">Send Reset Code</button>
+      </form>
+      <div id="forgot-success" class="hidden">
+        <div class="reset-code-display">
+          <p style="font-size:14px;color:var(--text-2);margin-bottom:8px;">Your reset code (dev mode):</p>
+          <div class="code" id="reset-code-display"></div>
+        </div>
+        <form id="reset-form" novalidate style="margin-top:20px;">
+          <input type="hidden" id="reset-email">
+          <div class="form-group">
+            <label for="reset-code-input">Reset Code</label>
+            <input type="text" id="reset-code-input" placeholder="6-digit code" maxlength="6" autocomplete="off">
+          </div>
+          <div class="form-group">
+            <label for="reset-password">New Password</label>
+            <input type="password" id="reset-password" placeholder="Min. 8 characters" autocomplete="new-password">
+          </div>
+          <div class="form-group">
+            <label for="reset-confirm">Confirm New Password</label>
+            <input type="password" id="reset-confirm" placeholder="Repeat password" autocomplete="new-password">
+          </div>
+          <button type="submit" class="btn btn-primary btn-full">Reset Password</button>
+        </form>
+      </div>
+      <p class="auth-switch"><a class="auth-link" id="link-login-from-forgot">Back to Sign In</a></p>
+    </div>
+  </div>
+</div>
+
+<!-- ===== DASHBOARD ===== -->
+<div id="view-dashboard" data-view="dashboard">
+  <header class="dashboard-header">
+    <div class="header-left">
+      <span class="header-logo-icon">📋</span>
+      <span class="header-logo-text">AuditMate</span>
+    </div>
+    <div class="header-right">
+      <span class="header-username" id="user-name"></span>
+      <button class="btn btn-secondary btn-sm" id="btn-to-admin" style="display:none">Admin Panel</button>
+      <button class="btn btn-ghost btn-sm" id="btn-logout">Sign Out</button>
+    </div>
+  </header>
+  <main class="dashboard-body">
+    <div class="dashboard-cta">
+      <div class="cta-text">
+        <h2>Your Audits</h2>
+        <p>Create, manage and share professional audit reports.</p>
+      </div>
+      <button class="btn btn-primary btn-lg" id="btn-new-audit">+ New Audit</button>
+    </div>
+    <div id="empty-state" class="empty-state">
+      <span class="empty-icon">📋</span>
+      <h3 class="empty-title">No audits yet</h3>
+      <p class="empty-subtitle">Tap "New Audit" to start your first site audit.</p>
+    </div>
+    <div class="audits-section-header hidden">
+      <span class="audits-section-title">Recent Audits</span>
+      <span class="audit-count" id="audit-count-badge"></span>
+    </div>
+    <div id="audit-list" class="audit-list"></div>
+  </main>
+</div>
+
+<!-- ===== ADMIN PANEL ===== -->
+<div id="view-admin" data-view="admin">
+  <header class="dashboard-header">
+    <div class="header-left">
+      <span class="header-logo-icon">📋</span>
+      <span class="header-logo-text">AuditMate</span>
+      <span class="admin-badge">Admin</span>
+    </div>
+    <div class="header-right">
+      <span class="header-username" id="admin-user-name"></span>
+      <button class="btn btn-secondary btn-sm" id="btn-admin-to-dashboard">Audits</button>
+      <button class="btn btn-ghost btn-sm" id="btn-admin-logout">Sign Out</button>
+    </div>
+  </header>
+  <main class="admin-body">
+    <div class="admin-tabs">
+      <button class="admin-tab active" data-tab="overview" onclick="switchAdminTab('overview')">Overview</button>
+      <button class="admin-tab" data-tab="team" onclick="switchAdminTab('team')">Team</button>
+      <button class="admin-tab" data-tab="templates" onclick="switchAdminTab('templates')">Templates</button>
+    </div>
+    <div class="admin-tab-panel active" data-tab-panel="overview">
+      <div class="admin-stats-grid">
+        <div class="stat-card"><div class="stat-value" id="stat-total-audits">0</div><div class="stat-label">Total Audits</div></div>
+        <div class="stat-card"><div class="stat-value" id="stat-team-size">0</div><div class="stat-label">Team Members</div></div>
+        <div class="stat-card"><div class="stat-value" id="stat-templates">0</div><div class="stat-label">Templates</div></div>
+      </div>
+    </div>
+    <div class="admin-tab-panel" data-tab-panel="team">
+      <div class="admin-section-header">
+        <h2>Team Members</h2>
+        <button class="btn btn-primary" id="btn-invite-member" onclick="inviteMember()">+ Invite Member</button>
+      </div>
+      <div id="team-list" class="team-list"></div>
+    </div>
+    <div class="admin-tab-panel" data-tab-panel="templates">
+      <div class="admin-section-header">
+        <h2>Audit Templates</h2>
+        <button class="btn btn-primary" id="btn-new-template">+ New Template</button>
+      </div>
+      <div id="template-list" class="template-list"></div>
+    </div>
+  </main>
+</div>
+
+<!-- ===== AUDIT DETAIL ===== -->
+<div id="view-audit-detail" data-view="audit-detail">
+  <header class="dashboard-header">
+    <div class="header-left">
+      <button class="btn btn-ghost btn-sm" id="btn-audit-back">← Audits</button>
+      <span class="header-logo-text" id="audit-detail-title" style="font-size:16px;"></span>
+    </div>
+    <div class="header-right">
+      <button class="btn btn-secondary btn-sm" id="btn-audit-email">✉ Email</button>
+      <button class="btn btn-secondary btn-sm" id="btn-audit-pdf">⬇ PDF</button>
+      <button class="btn btn-danger btn-sm" id="btn-audit-delete" title="Delete audit">🗑</button>
+    </div>
+  </header>
+  <main class="audit-detail-body">
+    <div class="audit-detail-meta-card" id="audit-detail-meta"></div>
+    <div class="report-content audit-detail-report" id="audit-detail-report"></div>
+  </main>
+</div>
+
+<!-- ===== TEMPLATE EDITOR ===== -->
+<div id="view-template-editor" data-view="template-editor">
+  <header class="editor-header">
+    <div class="editor-header-left">
+      <button class="btn btn-ghost btn-sm" id="btn-editor-back">← Back</button>
+      <input type="text" id="template-name-input" class="template-name-input" placeholder="Template name…">
+      <label class="default-toggle-label">
+        <input type="checkbox" id="template-is-default"> Set as default
+      </label>
+    </div>
+    <button class="btn btn-primary" id="btn-save-template">Save Template</button>
+  </header>
+  <div class="editor-body">
+    <div id="editor-sections"></div>
+    <button class="btn btn-secondary btn-full" id="btn-add-section" style="margin-top:16px;">+ Add Section</button>
+  </div>
+</div>
+
+<!-- ===== WIZARD ===== -->
+<div id="view-wizard" data-view="wizard">
+  <header class="wizard-header">
+    <div class="wizard-header-top">
+      <div class="wizard-logo">
+        <span class="wizard-logo-icon">📋</span>
+        <span class="wizard-logo-text">New Audit</span>
+      </div>
+      <span class="wizard-step-count" id="wizard-step-count">Step 1 of 7</span>
+    </div>
+    <div class="progress-steps" aria-label="Wizard steps">
+      <div class="progress-step active" data-step="1"><div class="step-bubble">1</div><span class="step-label">Details</span></div>
+      <div class="progress-step" data-step="2"><div class="step-bubble">2</div><span class="step-label">Notes</span></div>
+      <div class="progress-step" data-step="3"><div class="step-bubble">3</div><span class="step-label">Holdups</span></div>
+      <div class="progress-step" data-step="4"><div class="step-bubble">4</div><span class="step-label">Materials</span></div>
+      <div class="progress-step" data-step="5"><div class="step-bubble">5</div><span class="step-label">Photos</span></div>
+      <div class="progress-step" data-step="6"><div class="step-bubble">6</div><span class="step-label">Report</span></div>
+      <div class="progress-step" data-step="7"><div class="step-bubble">7</div><span class="step-label">Sign Off</span></div>
+    </div>
+  </header>
+  <div class="wizard-body">
+
+    <!-- STEP 1: Job Details -->
+    <div class="step-panel active" data-step="1">
+      <h2 class="step-heading">Job Details</h2>
+      <p class="step-subheading">Enter the basic information for this audit.</p>
+      <div class="form-row">
+        <div class="form-group">
+          <label for="client-name">Client Name <span class="required">*</span></label>
+          <input type="text" id="client-name" placeholder="e.g. John Smith" autocomplete="off">
+        </div>
+        <div class="form-group">
+          <label for="job-type">Job Type <span class="required">*</span></label>
+          <select id="job-type">
+            <option value="">Select type…</option>
+            <option value="Residential Inspection">Residential Inspection</option>
+            <option value="Commercial Inspection">Commercial Inspection</option>
+            <option value="Industrial Inspection">Industrial Inspection</option>
+            <option value="Pre-purchase Inspection">Pre-purchase Inspection</option>
+            <option value="New Installation">New Installation</option>
+            <option value="System Upgrade">System Upgrade</option>
+            <option value="Maintenance &amp; Repair">Maintenance &amp; Repair</option>
+            <option value="Fault Diagnosis">Fault Diagnosis</option>
+            <option value="Compliance Audit">Compliance Audit</option>
+            <option value="Periodic Safety Check">Periodic Safety Check</option>
+          </select>
+        </div>
+        <div class="form-group form-row-full">
+          <label for="site-address">Site Address <span class="required">*</span></label>
+          <input type="text" id="site-address" placeholder="e.g. 42 Main St, Sydney NSW 2000" autocomplete="off">
+        </div>
+        <div class="form-group">
+          <label for="electrician-name">Tradesperson Name <span class="required">*</span></label>
+          <input type="text" id="electrician-name" placeholder="e.g. Jane Williams" autocomplete="off">
+        </div>
+        <div class="form-group">
+          <label for="job-date">Date <span class="required">*</span></label>
+          <input type="date" id="job-date">
+        </div>
+        <div class="form-group">
+          <label for="license-number">Licence / Registration Number</label>
+          <input type="text" id="license-number" placeholder="e.g. LIC-12345" autocomplete="off">
+        </div>
+        <div class="form-group">
+          <label for="reference-number">Reference / Job Number</label>
+          <input type="text" id="reference-number" placeholder="e.g. JOB-2024-001" autocomplete="off">
+        </div>
+      </div>
+    </div>
+
+    <!-- STEP 2: Smart Site Notes & Observations -->
+    <div class="step-panel" data-step="2">
+      <h2 class="step-heading">Site Notes</h2>
+      <p class="step-subheading">Dictate everything at once — Claude will automatically sort your words into the right sections.</p>
+
+      <!-- Big smart voice button -->
+      <div class="smart-voice-area">
+        <div class="voice-btn-area">
+          <div class="voice-btn-inner">
+            <span class="voice-btn-label">Smart Voice Dictation</span>
+            <span id="voice-status" class="voice-status">Tap to dictate — Claude sorts it automatically</span>
+          </div>
+          <button id="btn-voice" type="button" aria-label="Dictate site notes">🎤</button>
+        </div>
+        <div id="transcript-preview" class="transcript-preview hidden">
+          <div class="transcript-label">Transcript captured — sorting into sections…</div>
+          <div id="transcript-text" class="transcript-text"></div>
+        </div>
+      </div>
+
+      <!-- 8 smart note sections -->
+      <div class="smart-notes-grid">
+
+        <div class="note-section">
+          <div class="note-section-header">
+            <label class="note-section-label" for="note-works-completed">Works Completed Today</label>
+            <button class="note-mic-btn" data-section="worksCompleted" type="button" title="Dictate to this section">🎤</button>
+          </div>
+          <textarea id="note-works-completed" class="note-textarea" placeholder="What was actually done on site today…" rows="3"></textarea>
+        </div>
+
+        <div class="note-section">
+          <div class="note-section-header">
+            <label class="note-section-label" for="note-hazards">Hazards Identified</label>
+            <button class="note-mic-btn" data-section="hazards" type="button" title="Dictate to this section">🎤</button>
+          </div>
+          <textarea id="note-hazards" class="note-textarea" placeholder="Any safety issues or hazards spotted…" rows="3"></textarea>
+        </div>
+
+        <div class="note-section">
+          <div class="note-section-header">
+            <label class="note-section-label" for="note-issues">Issues and Problems</label>
+            <button class="note-mic-btn" data-section="issues" type="button" title="Dictate to this section">🎤</button>
+          </div>
+          <textarea id="note-issues" class="note-textarea" placeholder="Anything that went wrong or needs attention…" rows="3"></textarea>
+        </div>
+
+        <div class="note-section">
+          <div class="note-section-header">
+            <label class="note-section-label" for="note-holdups">Holdups</label>
+            <button class="note-mic-btn" data-section="holdups" type="button" title="Dictate to this section">🎤</button>
+          </div>
+          <textarea id="note-holdups" class="note-textarea" placeholder="Delays and their reasons…" rows="2"></textarea>
+        </div>
+
+        <div class="note-section">
+          <div class="note-section-header">
+            <label class="note-section-label" for="note-materials-used">Materials Used</label>
+            <button class="note-mic-btn" data-section="materialsUsed" type="button" title="Dictate to this section">🎤</button>
+          </div>
+          <textarea id="note-materials-used" class="note-textarea" placeholder="What was consumed today…" rows="2"></textarea>
+        </div>
+
+        <div class="note-section">
+          <div class="note-section-header">
+            <label class="note-section-label" for="note-materials-needed">Materials Needed</label>
+            <button class="note-mic-btn" data-section="materialsNeeded" type="button" title="Dictate to this section">🎤</button>
+          </div>
+          <textarea id="note-materials-needed" class="note-textarea" placeholder="What still needs to be ordered…" rows="2"></textarea>
+        </div>
+
+        <div class="note-section">
+          <div class="note-section-header">
+            <label class="note-section-label" for="note-next-steps">Next Steps</label>
+            <button class="note-mic-btn" data-section="nextSteps" type="button" title="Dictate to this section">🎤</button>
+          </div>
+          <textarea id="note-next-steps" class="note-textarea" placeholder="What needs to happen on the next visit…" rows="2"></textarea>
+        </div>
+
+        <div class="note-section">
+          <div class="note-section-header">
+            <label class="note-section-label" for="note-general">General Notes</label>
+            <button class="note-mic-btn" data-section="generalNotes" type="button" title="Dictate to this section">🎤</button>
+          </div>
+          <textarea id="note-general" class="note-textarea" placeholder="Anything else that doesn't fit above…" rows="2"></textarea>
+        </div>
+
+      </div><!-- /.smart-notes-grid -->
+
+      <!-- Observations checklist (kept below notes) -->
+      <div class="obs-section">
+        <h3 class="obs-section-heading">Observations Checklist</h3>
+        <p class="obs-hint">Tap Pass / Fail / N/A for each item.</p>
+        <div class="obs-grid" id="obs-grid"></div>
+      </div>
+    </div>
+
+    <!-- STEP 3: Holdups -->
+    <div class="step-panel" data-step="3">
+      <h2 class="step-heading">Holdups</h2>
+      <p class="step-subheading">Record any delays or blockers affecting this job.</p>
+      <div class="holdup-toggle-row">
+        <span class="holdup-toggle-label">Was there a holdup today?</span>
+        <div class="toggle-group" id="holdup-toggle">
+          <button class="toggle-btn active" type="button" data-value="no">No</button>
+          <button class="toggle-btn" type="button" data-value="yes">Yes</button>
+        </div>
+      </div>
+      <div class="holdup-details hidden" id="holdup-details">
+        <div class="form-group" style="margin-top:20px;">
+          <label for="holdup-reason">Reason for Holdup <span class="required">*</span></label>
+          <textarea id="holdup-reason" placeholder="Describe the holdup…" rows="3"></textarea>
+        </div>
+        <div class="form-row">
+          <div class="form-group">
+            <label for="holdup-responsible">Responsible Party</label>
+            <input type="text" id="holdup-responsible" placeholder="e.g. Client, Supplier, Weather">
+          </div>
+          <div class="form-group">
+            <label for="holdup-delay">Estimated Delay</label>
+            <input type="text" id="holdup-delay" placeholder="e.g. 2 days, 1 week">
+          </div>
+        </div>
+        <div class="holdup-toggle-row">
+          <span class="holdup-toggle-label">Formally reported?</span>
+          <div class="toggle-group" id="holdup-reported-toggle">
+            <button class="toggle-btn active" type="button" data-value="no">No</button>
+            <button class="toggle-btn" type="button" data-value="yes">Yes</button>
+          </div>
+        </div>
+        <div class="form-group" style="margin-top:16px;">
+          <label for="holdup-notes">Additional Notes</label>
+          <textarea id="holdup-notes" placeholder="Any other details…" rows="3"></textarea>
+        </div>
+      </div>
+    </div>
+
+    <!-- STEP 4: Materials -->
+    <div class="step-panel" data-step="4">
+      <h2 class="step-heading">Materials</h2>
+      <p class="step-subheading">Log materials used and still needed on this job.</p>
+      <div class="voice-btn-area" style="margin-bottom:16px;">
+        <div class="voice-btn-inner">
+          <span class="voice-btn-label">Voice Entry</span>
+          <span id="materials-voice-status" class="voice-status">e.g. "25 metres of conduit, needed"</span>
+        </div>
+        <button id="btn-materials-voice" type="button" aria-label="Voice add material">🎤</button>
+      </div>
+      <div id="materials-list" class="materials-list"></div>
+      <button class="btn btn-secondary btn-full" id="btn-add-material" style="margin-top:12px;">+ Add Material</button>
+    </div>
+
+    <!-- STEP 5: Photos -->
+    <div class="step-panel" data-step="5">
+      <h2 class="step-heading">Photographic Evidence</h2>
+      <p class="step-subheading">Add up to 10 photos. Tap to add captions.</p>
+      <div class="drop-zone" id="photo-drop-zone" tabindex="0" role="button" aria-label="Click or drag photos here">
+        <div class="drop-zone-icon">📷</div>
+        <p>Drag &amp; drop photos here, or <span>tap to browse</span></p>
+        <input type="file" id="photo-input" accept="image/*" multiple>
+      </div>
+      <p class="photo-count" id="photo-count">No photos added</p>
+      <div class="photo-grid" id="photo-grid"></div>
+    </div>
+
+    <!-- STEP 6: Report -->
+    <div class="step-panel" data-step="6">
+      <h2 class="step-heading">Generate Report</h2>
+      <p class="step-subheading">AI will write a professional audit report based on your inputs.</p>
+      <div class="generate-section" id="generate-section">
+        <div class="generate-card">
+          <div class="generate-icon">🤖</div>
+          <h3>Ready to Generate</h3>
+          <p>Claude AI will create a complete, professional audit report using your job details, observations, holdups, materials, and photos.</p>
+          <button class="btn btn-primary btn-lg" id="btn-generate">Generate Report</button>
+        </div>
+      </div>
+      <div class="loading-section" id="loading-section">
+        <div class="spinner"></div>
+        <p class="loading-msg">Generating your report…</p>
+        <p class="loading-hint">This usually takes 15–30 seconds</p>
+      </div>
+      <div class="report-preview" id="report-preview">
+        <div class="report-toolbar">
+          <span>✓ Generated Report</span>
+          <button class="btn btn-ghost btn-sm" id="btn-regenerate">↺ Regenerate</button>
+        </div>
+        <div class="report-content" id="report-content" aria-live="polite"></div>
+      </div>
+    </div>
+
+    <!-- STEP 7: Sign Off -->
+    <div class="step-panel" data-step="7">
+      <h2 class="step-heading">Sign Off</h2>
+      <p class="step-subheading">Review, sign, then complete or export your audit.</p>
+      <div class="signoff-card">
+        <h3>Audit Summary</h3>
+        <div id="signoff-summary" class="signoff-summary"></div>
+      </div>
+      <div class="sig-section">
+        <label>Tradesperson Signature</label>
+        <div class="sig-canvas-wrap">
+          <canvas id="sig-canvas" aria-label="Signature pad"></canvas>
+          <span id="sig-placeholder" class="sig-placeholder">Sign here</span>
+        </div>
+        <div class="sig-footer">
+          <span id="sig-info" class="sig-info"></span>
+          <button class="btn btn-ghost btn-sm" id="btn-clear-sig" type="button">Clear</button>
+        </div>
+      </div>
+      <div class="signoff-actions">
+        <button class="btn btn-primary btn-full" id="btn-complete-audit">✓ Complete Audit</button>
+        <div class="signoff-export">
+          <button class="btn btn-secondary" id="btn-email">✉ Email Report</button>
+          <button class="btn btn-secondary" id="btn-download">⬇ Download PDF</button>
+        </div>
+      </div>
+    </div>
+
+  </div><!-- /.wizard-body -->
+  <footer class="wizard-footer">
+    <button class="btn btn-ghost" id="btn-prev" style="display:none">← Back</button>
+    <button class="btn btn-primary" id="btn-next">Continue →</button>
+  </footer>
+</div>
+
+<!-- Email Modal -->
+<div id="email-modal-overlay" class="modal-overlay" role="dialog" aria-modal="true" aria-labelledby="modal-title">
+  <div class="modal-card">
+    <div class="modal-header">
+      <h3 id="modal-title">Email Report</h3>
+      <button class="modal-close" id="modal-close" aria-label="Close">&times;</button>
+    </div>
+    <div class="form-group">
+      <label for="email-to">Recipient Email <span class="required">*</span></label>
+      <input type="email" id="email-to" placeholder="client@example.com">
+    </div>
+    <div class="form-group">
+      <label for="email-subject">Subject</label>
+      <input type="text" id="email-subject">
+    </div>
+    <div class="form-group">
+      <label for="email-message">Message</label>
+      <textarea id="email-message" rows="5"></textarea>
+    </div>
+    <div class="modal-footer">
+      <button class="btn btn-ghost" id="btn-modal-cancel">Cancel</button>
+      <button class="btn btn-primary" id="btn-modal-send">Send Email</button>
+    </div>
+  </div>
+</div>
+
+<script src="/js/auth.js"></script>
+<script src="/js/admin.js"></script>
+<script src="/js/templateEditor.js"></script>
+<script src="/js/app.js"></script>
+</body>
+</html>

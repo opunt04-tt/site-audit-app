@@ -1,0 +1,40 @@
+[
+  {
+    "id": "126b1002-bceb-42b7-909d-b342ceab28b2",
+    "name": "Admin User",
+    "email": "admin@test.com",
+    "passwordHash": "$2b$10$b7dNRYeU356.g5ufIh1gyeF/Yx/bp0mSU9sEqq1HV5BbCo1.lDmXi",
+    "companyId": "3c8c1df7-d022-4f8a-9d57-9b3c718a0632",
+    "role": "admin",
+    "createdAt": "2026-05-20T20:42:20.411Z",
+    "resetCode": "682862",
+    "resetExpiry": "2026-05-20T21:12:56.411Z"
+  },
+  {
+    "id": "56c559d5-7d3b-431a-a79f-9f3588d6a014",
+    "name": "Field Worker",
+    "email": "worker@test.com",
+    "passwordHash": "$2b$10$XQ3IPpTZDt471XBHizCWjuQ35syeF9x2BHxch9SJSDiEpvdH90.ay",
+    "companyId": "3c8c1df7-d022-4f8a-9d57-9b3c718a0632",
+    "role": "field_worker",
+    "createdAt": "2026-05-20T20:43:59.255Z"
+  },
+  {
+    "id": "32587c24-8ff8-4c4e-ac26-e69579cb980f",
+    "name": "olly punt",
+    "email": "opunt04@outlook.com",
+    "passwordHash": "$2b$10$a4l2euBu.4hKMhwDP.4sy.fQvX27ulsrRLWwWWFmu.2HIHVuFqWmm",
+    "companyId": "ceae5624-03c4-43e5-ad55-2d6141e2bc72",
+    "role": "admin",
+    "createdAt": "2026-05-20T20:51:45.720Z"
+  },
+  {
+    "id": "d8557f24-e1bf-4fd8-863e-2b933bd83273",
+    "name": "Test Admin",
+    "email": "fixtest@test.com",
+    "passwordHash": "$2b$10$SACzLKPQ36p5E9Dd0NSCgeZAFu88aSAr6.VhDoudy.KVttveZuKa.",
+    "companyId": "a2805b7b-276f-4269-ab16-baa114397e0d",
+    "role": "admin",
+    "createdAt": "2026-05-21T08:26:21.276Z"
+  }
+]

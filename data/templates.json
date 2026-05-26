@@ -1,0 +1,684 @@
+[
+  {
+    "id": "751077c1-81bf-4605-9c95-8246ceab9e18",
+    "companyId": "3c8c1df7-d022-4f8a-9d57-9b3c718a0632",
+    "name": "Default Template",
+    "isDefault": true,
+    "createdAt": "2026-05-20T20:42:20.412Z",
+    "sections": [
+      {
+        "id": "b074d73f-1a0e-463d-af99-bacac37dbfd8",
+        "name": "Job Details",
+        "order": 0,
+        "fields": [
+          {
+            "id": "f676fcc5-67f8-4a95-b27a-c11091fed840",
+            "name": "Client Name",
+            "type": "text",
+            "required": true,
+            "order": 0
+          },
+          {
+            "id": "4793deaa-818b-4008-9ef8-58316e6c0971",
+            "name": "Site Address",
+            "type": "text",
+            "required": true,
+            "order": 1
+          },
+          {
+            "id": "4267f7ff-cac1-41af-946a-ed2419ab1406",
+            "name": "Job Type",
+            "type": "dropdown",
+            "required": true,
+            "order": 2,
+            "options": [
+              "Residential Inspection",
+              "Commercial Inspection",
+              "Industrial Inspection",
+              "Pre-purchase Inspection",
+              "New Installation",
+              "System Upgrade",
+              "Maintenance & Repair",
+              "Fault Diagnosis",
+              "Compliance Audit",
+              "Periodic Safety Check"
+            ]
+          },
+          {
+            "id": "d48d0374-c963-406c-889e-f9b0fb1406a3",
+            "name": "Tradesperson Name",
+            "type": "text",
+            "required": true,
+            "order": 3
+          },
+          {
+            "id": "648fd154-5f2d-474f-afea-8d2c052329bc",
+            "name": "Date",
+            "type": "date",
+            "required": true,
+            "order": 4
+          },
+          {
+            "id": "81b6558b-b7b4-42ec-ad56-ded938939b34",
+            "name": "Licence / Registration Number",
+            "type": "text",
+            "required": false,
+            "order": 5
+          },
+          {
+            "id": "1257947a-28d0-4ccf-aac4-231ed840966f",
+            "name": "Reference / Job Number",
+            "type": "text",
+            "required": false,
+            "order": 6
+          }
+        ]
+      },
+      {
+        "id": "e85f668e-fb51-4748-bd13-abc044b5fe1d",
+        "name": "Site Conditions",
+        "order": 1,
+        "fields": [
+          {
+            "id": "28b45aaa-5446-4c19-b4e0-54f065b7a87d",
+            "name": "Site Notes",
+            "type": "textarea",
+            "required": false,
+            "order": 0
+          },
+          {
+            "id": "8fccbb77-8ad5-415c-a5cb-e7a218bccad8",
+            "name": "Site safe and accessible",
+            "type": "pass_fail_na",
+            "required": false,
+            "order": 1
+          },
+          {
+            "id": "079475ef-7c71-4362-aa03-30d43cb894e9",
+            "name": "PPE and safety equipment in place",
+            "type": "pass_fail_na",
+            "required": false,
+            "order": 2
+          },
+          {
+            "id": "a241ff93-e212-4f01-914c-916116029056",
+            "name": "Main components in satisfactory condition",
+            "type": "pass_fail_na",
+            "required": false,
+            "order": 3
+          },
+          {
+            "id": "7fd33805-487a-4298-aa37-cfaeaf80e938",
+            "name": "Materials and workmanship acceptable",
+            "type": "pass_fail_na",
+            "required": false,
+            "order": 4
+          },
+          {
+            "id": "9ed897a5-238d-4b39-a19e-211549f630a8",
+            "name": "Fire safety compliance met",
+            "type": "pass_fail_na",
+            "required": false,
+            "order": 5
+          },
+          {
+            "id": "13996a2a-5fce-4e8c-8701-d998718b18d2",
+            "name": "No hazardous conditions identified",
+            "type": "pass_fail_na",
+            "required": false,
+            "order": 6
+          },
+          {
+            "id": "e7b095fe-e5e3-4db7-8952-591651f93398",
+            "name": "Work meets regulatory requirements",
+            "type": "pass_fail_na",
+            "required": false,
+            "order": 7
+          },
+          {
+            "id": "f2f71fbc-1863-485e-840a-c45ef7d0bcea",
+            "name": "Documentation and certification up to date",
+            "type": "pass_fail_na",
+            "required": false,
+            "order": 8
+          }
+        ]
+      },
+      {
+        "id": "ad3090cd-e5f9-4fe2-82f4-f2bbcfd82837",
+        "name": "Holdups",
+        "order": 2,
+        "type": "holdups",
+        "fields": []
+      },
+      {
+        "id": "dd5699dd-4813-42bc-8219-2a2407cc740e",
+        "name": "Materials",
+        "order": 3,
+        "type": "materials_list",
+        "fields": []
+      },
+      {
+        "id": "d3a34b50-8b4d-43a6-9165-b7af4db82f81",
+        "name": "Photos",
+        "order": 4,
+        "type": "photos",
+        "fields": []
+      },
+      {
+        "id": "72474d21-82f5-4fc4-bdad-c3083c4d1ba2",
+        "name": "Sign Off",
+        "order": 5,
+        "type": "signoff",
+        "fields": []
+      },
+      {
+        "id": "sec_test123",
+        "name": "New Section",
+        "order": 6,
+        "fields": [
+          {
+            "id": "fld_test",
+            "name": "New Field",
+            "type": "text",
+            "required": false,
+            "order": 0
+          }
+        ]
+      },
+      {
+        "id": "sec_test_1779350293",
+        "name": "New Section",
+        "order": 7,
+        "fields": []
+      }
+    ]
+  },
+  {
+    "id": "e390a579-c994-44b9-8912-a6efa8fb0e77",
+    "companyId": "ceae5624-03c4-43e5-ad55-2d6141e2bc72",
+    "name": "Default Template",
+    "isDefault": true,
+    "createdAt": "2026-05-20T20:51:45.721Z",
+    "sections": [
+      {
+        "id": "ef5111da-f3da-4b34-b98d-53f6cb645db8",
+        "name": "Job Details",
+        "order": 0,
+        "fields": [
+          {
+            "id": "d47f3daf-5ed5-45d2-b21d-4261dca987ef",
+            "name": "Client Name",
+            "type": "text",
+            "required": true,
+            "order": 0
+          },
+          {
+            "id": "40ea844d-4bb6-4978-94f1-4b19d08a880f",
+            "name": "Site Address",
+            "type": "text",
+            "required": true,
+            "order": 1
+          },
+          {
+            "id": "1e6a3478-e6a3-40bb-9688-f00ff9e0097e",
+            "name": "Job Type",
+            "type": "dropdown",
+            "required": true,
+            "order": 2,
+            "options": [
+              "Residential Inspection",
+              "Commercial Inspection",
+              "Industrial Inspection",
+              "Pre-purchase Inspection",
+              "New Installation",
+              "System Upgrade",
+              "Maintenance & Repair",
+              "Fault Diagnosis",
+              "Compliance Audit",
+              "Periodic Safety Check"
+            ]
+          },
+          {
+            "id": "48c73564-7e64-48d6-a928-36b914de8b71",
+            "name": "Tradesperson Name",
+            "type": "text",
+            "required": true,
+            "order": 3
+          },
+          {
+            "id": "59737e7a-5104-4225-89d2-eae19e14863c",
+            "name": "Date",
+            "type": "date",
+            "required": true,
+            "order": 4
+          },
+          {
+            "id": "a1f30702-7169-4b55-bc9b-e75bfe1cd046",
+            "name": "Licence / Registration Number",
+            "type": "text",
+            "required": false,
+            "order": 5
+          },
+          {
+            "id": "142a01e4-898b-4e9b-9e95-b75b37c67126",
+            "name": "Reference / Job Number",
+            "type": "text",
+            "required": false,
+            "order": 6
+          },
+          {
+            "id": "fld_1779813493015",
+            "name": "New Field",
+            "type": "text",
+            "required": false,
+            "order": 7
+          }
+        ]
+      },
+      {
+        "id": "0a2c3698-4034-44f7-b765-fc87b41eb42e",
+        "name": "Site Conditions",
+        "order": 1,
+        "fields": [
+          {
+            "id": "eecd0417-c88e-463b-b806-c3023ec5c8a4",
+            "name": "Site Notes",
+            "type": "textarea",
+            "required": false,
+            "order": 0
+          },
+          {
+            "id": "6468850f-c649-4b6c-910a-2cf1ff9c04c9",
+            "name": "Site safe and accessible",
+            "type": "pass_fail_na",
+            "required": false,
+            "order": 1
+          },
+          {
+            "id": "463776ad-7801-43da-895e-bbf84e7bf82e",
+            "name": "PPE and safety equipment in place",
+            "type": "pass_fail_na",
+            "required": false,
+            "order": 2
+          },
+          {
+            "id": "82b36f28-502d-43db-b1f2-07d9b71adf24",
+            "name": "Main components in satisfactory condition",
+            "type": "pass_fail_na",
+            "required": false,
+            "order": 3
+          },
+          {
+            "id": "f7f98bc4-a79e-43e0-a0bf-ddfd28823deb",
+            "name": "Materials and workmanship acceptable",
+            "type": "pass_fail_na",
+            "required": false,
+            "order": 4
+          },
+          {
+            "id": "237baf2d-7148-406e-8222-8c2d7e64522e",
+            "name": "Fire safety compliance met",
+            "type": "pass_fail_na",
+            "required": false,
+            "order": 5
+          },
+          {
+            "id": "dab43ab3-ce70-413d-866f-9fa1ba9c0340",
+            "name": "No hazardous conditions identified",
+            "type": "pass_fail_na",
+            "required": false,
+            "order": 6
+          },
+          {
+            "id": "9ee0f71d-de99-497d-9121-9ba1331a8786",
+            "name": "Work meets regulatory requirements",
+            "type": "pass_fail_na",
+            "required": false,
+            "order": 7
+          },
+          {
+            "id": "b9f5b4ff-935b-47a1-8644-cf0acc02b4dd",
+            "name": "Documentation and certification up to date",
+            "type": "pass_fail_na",
+            "required": false,
+            "order": 8
+          }
+        ]
+      },
+      {
+        "id": "1eca9146-5da3-4749-b515-b14f66688875",
+        "name": "Holdups",
+        "order": 2,
+        "type": "holdups",
+        "fields": []
+      },
+      {
+        "id": "7c605cad-a704-4623-b40e-c5ab3b5ea233",
+        "name": "Materials",
+        "order": 3,
+        "type": "materials_list",
+        "fields": []
+      },
+      {
+        "id": "579533c1-64b0-46af-a379-8712fd6f8c3c",
+        "name": "Photos",
+        "order": 4,
+        "type": "photos",
+        "fields": []
+      },
+      {
+        "id": "7dd486a3-991c-4cda-b61f-264c552595b5",
+        "name": "Sign Off",
+        "order": 5,
+        "type": "signoff",
+        "fields": []
+      }
+    ]
+  },
+  {
+    "id": "3248371f-4731-48ac-9755-eb5337ed66a6",
+    "companyId": "3c8c1df7-d022-4f8a-9d57-9b3c718a0632",
+    "createdAt": "2026-05-20T20:58:36.218Z",
+    "name": "Test Template",
+    "isDefault": false,
+    "sections": [
+      {
+        "id": "sec_1",
+        "name": "Inspection",
+        "order": 0,
+        "fields": [
+          {
+            "id": "fld_1",
+            "name": "Location",
+            "type": "text",
+            "required": true,
+            "order": 0
+          },
+          {
+            "id": "fld_2",
+            "name": "Condition",
+            "type": "pass_fail_na",
+            "required": false,
+            "order": 1
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "f8fd7477-5203-49db-99ea-0b56f84044c7",
+    "companyId": "a2805b7b-276f-4269-ab16-baa114397e0d",
+    "name": "Standard Site Audit",
+    "isDefault": true,
+    "createdAt": "2026-05-21T08:26:21.279Z",
+    "sections": [
+      {
+        "id": "6d92324d-5ee2-443a-b78b-6ba675d070f2",
+        "name": "Job Details",
+        "order": 0,
+        "fields": [
+          {
+            "id": "dc01533e-cb6a-475a-8aeb-04bebc0949a0",
+            "name": "Job Reference",
+            "type": "text",
+            "required": false,
+            "order": 0
+          },
+          {
+            "id": "e8422f30-1252-44f7-981b-97e77254624a",
+            "name": "Client Name",
+            "type": "text",
+            "required": true,
+            "order": 1
+          },
+          {
+            "id": "26d39f52-6a22-4e64-a495-42ee8a01f861",
+            "name": "Site Address",
+            "type": "text",
+            "required": true,
+            "order": 2
+          },
+          {
+            "id": "a66d323f-c5d2-4eae-893e-198b4e82be45",
+            "name": "Job Type",
+            "type": "dropdown",
+            "required": true,
+            "order": 3,
+            "options": [
+              "New Install",
+              "Maintenance",
+              "Inspection",
+              "Repair",
+              "Other"
+            ]
+          },
+          {
+            "id": "25df5b02-c450-4169-8be1-530a43b0ce78",
+            "name": "Date",
+            "type": "date",
+            "required": true,
+            "order": 4
+          },
+          {
+            "id": "90b038ce-57b1-4665-9d4d-a1f1c3c8a3af",
+            "name": "Weather Conditions",
+            "type": "dropdown",
+            "required": false,
+            "order": 5,
+            "options": [
+              "Dry",
+              "Wet",
+              "Windy",
+              "Freezing",
+              "Hot"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "4e36bf67-3ccc-4e6c-92d8-51a9d2cf5aaf",
+        "name": "Site Conditions",
+        "order": 1,
+        "fields": [
+          {
+            "id": "7d476acd-2b57-4f4a-89f9-2429445f5b00",
+            "name": "Site Access",
+            "type": "pass_fail_na",
+            "required": false,
+            "order": 0
+          },
+          {
+            "id": "cc722248-cf20-43dd-8fc8-73da5d1faa17",
+            "name": "PPE Compliance",
+            "type": "pass_fail_na",
+            "required": false,
+            "order": 1
+          },
+          {
+            "id": "0436da0c-6e56-43e2-b238-b6acfc8d2d67",
+            "name": "Signage in Place",
+            "type": "pass_fail_na",
+            "required": false,
+            "order": 2
+          },
+          {
+            "id": "37203d1d-6c50-4cc9-83f9-9664cbcbdffa",
+            "name": "Area Secured",
+            "type": "pass_fail_na",
+            "required": false,
+            "order": 3
+          },
+          {
+            "id": "5f2380c5-86a0-4162-b99d-1d39787cb257",
+            "name": "Tools and Equipment Checked",
+            "type": "pass_fail_na",
+            "required": false,
+            "order": 4
+          }
+        ]
+      },
+      {
+        "id": "fc893bbb-019e-40f3-9cf6-1b828773d3cc",
+        "name": "Works Completed",
+        "order": 2,
+        "fields": [
+          {
+            "id": "b257d10d-2ed2-4d87-a84b-71fd3a15e01c",
+            "name": "Description of Works",
+            "type": "textarea",
+            "required": false,
+            "order": 0
+          },
+          {
+            "id": "e6789ee3-3153-40de-915f-e4f965f44c1e",
+            "name": "Percentage Complete",
+            "type": "number",
+            "required": false,
+            "order": 1
+          },
+          {
+            "id": "25f74e3c-338a-43bc-ad00-1c16fee987a8",
+            "name": "Any Outstanding Works",
+            "type": "yes_no",
+            "required": false,
+            "order": 2
+          },
+          {
+            "id": "33bba1a5-53f6-4f66-ae5c-88fa7066ff1a",
+            "name": "Outstanding Works Detail",
+            "type": "textarea",
+            "required": false,
+            "order": 3
+          }
+        ]
+      },
+      {
+        "id": "820698d6-84b5-41c4-8924-707ed148c4a3",
+        "name": "Hazards Identified",
+        "order": 3,
+        "fields": [
+          {
+            "id": "4309d626-ed5f-4f5c-8689-45f4768a3664",
+            "name": "Any Hazards Found",
+            "type": "yes_no",
+            "required": false,
+            "order": 0
+          },
+          {
+            "id": "6e79be6d-d545-4d41-a3bc-1e5ae69fbb27",
+            "name": "Hazard Details",
+            "type": "textarea",
+            "required": false,
+            "order": 1
+          },
+          {
+            "id": "c6b4ed99-74ac-4cd4-861a-2d5ec8f212be",
+            "name": "Immediate Action Taken",
+            "type": "textarea",
+            "required": false,
+            "order": 2
+          },
+          {
+            "id": "98889742-e325-401c-913c-65eb205697d0",
+            "name": "Reported to Site Manager",
+            "type": "yes_no",
+            "required": false,
+            "order": 3
+          }
+        ]
+      },
+      {
+        "id": "8b3416ba-f11e-4b4b-9175-c4983faadafb",
+        "name": "Holdups",
+        "order": 4,
+        "fields": [
+          {
+            "id": "6eea7bde-1a43-4caf-a2b6-a5c41e37ecf2",
+            "name": "Any Holdups Today",
+            "type": "yes_no",
+            "required": false,
+            "order": 0
+          },
+          {
+            "id": "f22154e9-f240-4cf2-82c9-c07c78542bbb",
+            "name": "Reason for Holdup",
+            "type": "textarea",
+            "required": false,
+            "order": 1
+          },
+          {
+            "id": "f27124c0-00bb-4afe-8c30-0f5e201b6058",
+            "name": "Who is Responsible",
+            "type": "text",
+            "required": false,
+            "order": 2
+          },
+          {
+            "id": "7ba8dd12-27c4-4e24-b0c9-52a8513c7860",
+            "name": "Estimated Delay in Days",
+            "type": "number",
+            "required": false,
+            "order": 3
+          }
+        ]
+      },
+      {
+        "id": "476c3542-bb4d-4271-9b03-516c61770708",
+        "name": "Materials",
+        "order": 5,
+        "fields": [
+          {
+            "id": "dcce442d-67cb-4f84-9cd0-16aa589bf47a",
+            "name": "Materials Used",
+            "type": "textarea",
+            "required": false,
+            "order": 0
+          },
+          {
+            "id": "b3bc76d4-282d-4a30-b55c-20bc8524b264",
+            "name": "Materials Needed",
+            "type": "textarea",
+            "required": false,
+            "order": 1
+          }
+        ]
+      },
+      {
+        "id": "1e97722e-c6fa-4a9e-be39-e233972a8fcd",
+        "name": "Sign Off",
+        "order": 6,
+        "fields": [
+          {
+            "id": "72c64ae1-bc43-41db-8562-88a93fb405f2",
+            "name": "Works Safe to Leave",
+            "type": "yes_no",
+            "required": false,
+            "order": 0
+          },
+          {
+            "id": "bcaac516-ff6e-4737-ba2f-dd2689070df5",
+            "name": "Next Visit Required",
+            "type": "yes_no",
+            "required": false,
+            "order": 1
+          },
+          {
+            "id": "ef722bbb-e463-40db-8f7f-c10a0db58a50",
+            "name": "Next Visit Date",
+            "type": "date",
+            "required": false,
+            "order": 2
+          },
+          {
+            "id": "02fc186e-ea30-4256-ad9d-b72f058578a5",
+            "name": "Additional Notes",
+            "type": "textarea",
+            "required": false,
+            "order": 3
+          }
+        ]
+      }
+    ]
+  }
+]
