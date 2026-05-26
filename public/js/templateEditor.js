@@ -103,16 +103,18 @@ function buildFieldRowHtml(sectionId, field) {
         value="${escapeHtml(field.name)}"
         oninput="updateField('${sectionId}','${field.id}','name',this.value)"
         placeholder="Field name…">
-      <select class="field-type-select"
-        onchange="updateField('${sectionId}','${field.id}','type',this.value)">
-        ${typeOptions}
-      </select>
-      <label class="field-required-toggle" title="Mark as required">
-        <input type="checkbox"
-          ${field.required ? 'checked' : ''}
-          onchange="updateField('${sectionId}','${field.id}','required',this.checked)"> Req
-      </label>
-      <button class="btn btn-ghost btn-sm" style="color:var(--error);flex-shrink:0"
+      <div class="field-row-meta">
+        <select class="field-type-select"
+          onchange="updateField('${sectionId}','${field.id}','type',this.value)">
+          ${typeOptions}
+        </select>
+        <label class="field-required-toggle" title="Mark as required">
+          <input type="checkbox"
+            ${field.required ? 'checked' : ''}
+            onchange="updateField('${sectionId}','${field.id}','required',this.checked)"> Req
+        </label>
+      </div>
+      <button class="field-delete-btn"
         onclick="deleteField('${sectionId}','${field.id}')" title="Delete field">✕</button>
     </div>
   `;

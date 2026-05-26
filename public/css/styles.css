@@ -1768,6 +1768,214 @@ input[type="date"]::-webkit-calendar-picker-indicator {
 /* Dragging state for field rows */
 .editor-field-row.dragging { opacity: 0.45; box-shadow: var(--shadow-lg); }
 
+/* field-row-meta: type selector + required toggle, inline on desktop */
+.field-row-meta {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-shrink: 0;
+}
+
+/* Field delete button — replaces the inline btn btn-ghost btn-sm */
+.field-delete-btn {
+  flex-shrink: 0;
+  width: 36px; height: 36px;
+  display: flex; align-items: center; justify-content: center;
+  background: none;
+  border: 1.5px solid var(--border);
+  border-radius: var(--radius);
+  color: var(--error);
+  font-size: 15px;
+  cursor: pointer;
+  transition: background var(--t), border-color var(--t);
+  font-family: var(--font);
+  -webkit-tap-highlight-color: transparent;
+}
+.field-delete-btn:hover { background: var(--error-bg); border-color: var(--error-bdr); }
+
+/* ============================================================
+   TEMPLATE EDITOR — MOBILE LAYOUT
+   Tested at 375px (iPhone SE) and 390px (iPhone 14)
+   ============================================================ */
+@media (max-width: 540px) {
+
+  /* ── Header: 3-row stack ──────────────────────────────────── */
+  /* Use display:contents on the wrapper so its children
+     participate directly in the parent flex layout, letting us
+     order them freely with `order`. */
+  .editor-header {
+    flex-wrap: wrap;
+    padding: 12px 16px;
+    gap: 12px;
+    align-items: center;
+  }
+
+  .editor-header-left {
+    display: contents; /* dissolve wrapper — children become flex items of .editor-header */
+  }
+
+  /* Row 1 left: back button */
+  #btn-editor-back {
+    order: 1;
+    flex-shrink: 0;
+    height: 44px;
+  }
+
+  /* Row 1 right: save button */
+  #btn-save-template {
+    order: 2;
+    flex-shrink: 0;
+    margin-left: auto;
+    height: 44px;
+    padding: 0 20px;
+  }
+
+  /* Row 2: template name — full width */
+  .template-name-input {
+    order: 3;
+    flex: 0 0 100%;
+    width: 100%;
+    font-size: 16px;
+    padding: 6px 0;
+  }
+
+  /* Row 3: default checkbox — full width */
+  .default-toggle-label {
+    order: 4;
+    flex: 0 0 100%;
+    width: 100%;
+    padding: 2px 0 4px;
+    font-size: 15px;
+    white-space: normal;
+  }
+
+  /* ── Editor body padding ─────────────────────────────────── */
+  .editor-body {
+    padding: 16px 12px;
+  }
+
+  /* ── Section headers ─────────────────────────────────────── */
+  .editor-section-header {
+    padding: 12px 12px;
+    gap: 12px;
+    flex-wrap: wrap;
+  }
+
+  /* Bigger drag handle tap target */
+  .drag-handle {
+    font-size: 22px;
+    padding: 10px 6px;
+    margin: -10px 0 -10px -6px;
+    cursor: grab;
+    color: var(--text-3);
+  }
+
+  .editor-section-name {
+    font-size: 15px;
+    flex: 1;
+    min-width: 0;
+    padding: 4px 0;
+  }
+
+  /* Section delete: easy-to-tap */
+  .section-delete-btn {
+    min-width: 44px;
+    min-height: 44px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 18px;
+    padding: 10px;
+  }
+
+  /* ── Field rows: 2-line layout ───────────────────────────── */
+  /* Line 1: drag handle | field name | delete button          */
+  /* Line 2: (indented)  | type select + req checkbox          */
+  .editor-field-row {
+    flex-wrap: wrap;
+    padding: 10px 10px 8px;
+    gap: 0;
+    row-gap: 8px;
+    align-items: center;
+  }
+
+  /* Bigger field drag handle */
+  .drag-handle-field {
+    font-size: 22px;
+    width: 36px;
+    height: 44px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    order: 1;
+  }
+
+  /* Field name: fills remaining row-1 space */
+  .field-name-input {
+    order: 2;
+    flex: 1;
+    min-width: 0;
+    font-size: 15px;
+    padding: 4px 0;
+    height: 44px;
+  }
+
+  /* Delete button: right of row 1 */
+  .field-delete-btn {
+    order: 3;
+    width: 44px;
+    height: 44px;
+    margin-left: 8px;
+    font-size: 17px;
+  }
+
+  /* Meta row (type + req): full width, indented to align with name */
+  .field-row-meta {
+    order: 4;
+    flex: 0 0 100%;
+    width: 100%;
+    padding-left: 36px; /* align under field name, past drag handle */
+    gap: 10px;
+  }
+
+  .field-type-select {
+    flex: 1;
+    max-width: none;
+    height: 40px;
+    font-size: 14px;
+  }
+
+  .field-required-toggle {
+    white-space: nowrap;
+    font-size: 14px;
+    gap: 6px;
+    flex-shrink: 0;
+  }
+
+  /* ── Add field / add section buttons ─────────────────────── */
+  .add-field-btn {
+    min-height: 48px;
+    font-size: 15px;
+  }
+
+  /* "Add Section" button at bottom of editor body */
+  #btn-add-section {
+    min-height: 52px;
+    font-size: 15px;
+    margin-top: 20px;
+  }
+
+  /* Ensure at least 12px gap between all buttons in the editor */
+  .editor-field-list {
+    gap: 12px;
+  }
+
+  .editor-section {
+    margin-bottom: 16px;
+  }
+}
+
 /* Materials voice button mirrors site notes voice button */
 #btn-materials-voice {
   width: 72px; height: 72px; border-radius: 50%;
